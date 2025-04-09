@@ -11,19 +11,27 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: Base
-        default_layer {
-            bindings = <
-                &kp Q   &kp W   &kp E   &kp R        
-                &kp A   &kp S   &kp D   &kp F   &kp DEL   &to 1            
-            >;
-        };
-
-        // Layer 1: Mouse Controls
+        // Layer 0: Mouse Controls
         mouse_layer {
             bindings = <
                 &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
-                &mmv MOVE_LEFT   &mmv MOVE_UP   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &bt BT_CLR   &to 0            
+                &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &lt 1 BSPC   &lt 2 ENTER            
+            >;
+        };
+        
+        // Layer 1: Base
+        default_layer {
+            bindings = <
+                &kp Q   &kp W   &kp E   &kp R        
+                &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans   &bt BT_CLR            
+            >;
+        };
+
+        // Layer 2: Navigation
+        nav_layer {
+            bindings = <
+                &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
+                &kp Q   &kp W   &kp E   &kp R   &bootloader   &trans            
             >;
         };
     };
