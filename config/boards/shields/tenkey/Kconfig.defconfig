@@ -1,6 +1,6 @@
 if SHIELD_TENKEY
 
 config ZMK_KEYBOARD_NAME
-    default "tenkey"
+    default "tenkey v2"
 
 endif
