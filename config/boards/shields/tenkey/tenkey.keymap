@@ -8,6 +8,38 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        
+        //toggle layer 0 (return to base layer)
+        combo_layer0 {
+            timeout-ms = <30>;
+            key-positions = <8 9>;
+            bindings = <&to 0>;
+        };
+
+        //toggle layer 1 (navigation layer)
+        combo_layer1 {
+            timeout-ms = <30>;
+            key-positions = <0 1 2 3>;
+            bindings = <&to 1>;
+        };
+
+        //toggle layer 2 (macros layer)
+        combo_layer2 {
+            timeout-ms = <30>;
+            key-positions = <4 5 6 7>;
+            bindings = <&tog 2>;
+        };
+
+        //toggle layer 3 (bt layer)
+        combo_layer3 {
+            timeout-ms = <30>;
+            key-positions = <0 3 4 7>;
+            bindings = <&tog 1>;
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -15,23 +47,31 @@
         mouse_layer {
             bindings = <
                 &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
-                &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &lt 1 BSPC   &lt 2 ENTER            
+                &mmv MOVE_LEFT   &mmv MOVE_UP   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &kp ENTER   &kp ESC            
             >;
         };
         
-        // Layer 1: Base
+        // Layer 1: Navigation
         default_layer {
             bindings = <
-                &kp Q   &kp W   &kp E   &kp R        
-                &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans   &bt BT_CLR            
+                &kp DEL   &kp LC(X)   &kp LC(C)   &kp LC(V)        
+                &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp LSHFT   &bt LCTRL            
             >;
         };
 
-        // Layer 2: Navigation
+        // Layer 2: Macros
         nav_layer {
             bindings = <
                 &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
                 &kp Q   &kp W   &kp E   &kp R   &bootloader   &trans            
+            >;
+        };
+
+        // Layer 3: Bluetooth
+        bt_layer {
+            bindings = <
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3        
+                &none           &none           &none           &none           &bt BT_CLR   &bootloader            
             >;
         };
     };
