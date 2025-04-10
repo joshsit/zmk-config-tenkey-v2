@@ -52,7 +52,7 @@
         };
         
         // Layer 1: Navigation
-        default_layer {
+        nav_layer {
             bindings = <
                 &kp DEL   &kp LC(X)   &kp LC(C)   &kp LC(V)        
                 &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp LSHFT   &kp LCTRL            
@@ -60,7 +60,7 @@
         };
 
         // Layer 2: Macros
-        nav_layer {
+        macro_layer {
             bindings = <
                 &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
                 &kp Q   &kp W   &kp E   &kp R   &bootloader   &trans            
