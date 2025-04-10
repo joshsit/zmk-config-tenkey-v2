@@ -21,22 +21,22 @@
         //toggle layer 1 (navigation layer)
         combo_layer1 {
             timeout-ms = <30>;
-            key-positions = <0 1 2 3>;
+            key-positions = <0 9>;
             bindings = <&to 1>;
         };
 
         //toggle layer 2 (macros layer)
         combo_layer2 {
             timeout-ms = <30>;
-            key-positions = <4 5 6 7>;
-            bindings = <&tog 2>;
+            key-positions = <1 9>;
+            bindings = <&to 2>;
         };
 
         //toggle layer 3 (bt layer)
         combo_layer3 {
             timeout-ms = <30>;
-            key-positions = <0 3 4 7>;
-            bindings = <&tog 1>;
+            key-positions = <2 9>;
+            bindings = <&to 3>;
         };
     };
     
@@ -44,7 +44,7 @@
         compatible = "zmk,keymap";
 
         // Layer 0: Mouse Controls
-        mouse_layer {
+        default_layer {
             bindings = <
                 &msc SCRL_UP   &msc SCRL_DOWN   &mkp LCLK   &mkp RCLK        
                 &mmv MOVE_LEFT   &mmv MOVE_UP   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &kp ENTER   &kp ESC            
@@ -55,7 +55,7 @@
         default_layer {
             bindings = <
                 &kp DEL   &kp LC(X)   &kp LC(C)   &kp LC(V)        
-                &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp LSHFT   &bt LCTRL            
+                &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp LSHFT   &kp LCTRL            
             >;
         };
 
