@@ -14,30 +14,37 @@
         //toggle layer 0 (return to base layer)
         combo_layer0 {
             timeout-ms = <30>;
-            key-positions = <8 9>;
+            key-positions = <8 9>;  // tap both thumb keys to go to home layer
             bindings = <&to 0>;
         };
 
         //toggle layer 1 (navigation layer)
         combo_layer1 {
             timeout-ms = <30>;
-            key-positions = <0 9>;
+            key-positions = <0 9>;  // toggle nav layer with top pinky key and outer thumb key
             bindings = <&to 1>;
         };
 
         //toggle layer 2 (macros layer)
         combo_layer2 {
             timeout-ms = <30>;
-            key-positions = <1 9>;
+            key-positions = <1 9>;  // toggle macro layer with top ring key and outer thumb key
             bindings = <&to 2>;
         };
 
         //toggle layer 3 (bt layer)
         combo_layer3 {
             timeout-ms = <30>;
-            key-positions = <2 9>;
+            key-positions = <7 9>;  // toggle bluetooth layer with lower index key and outer thumb key
             bindings = <&to 3>;
         };
+
+        //toggle layer 4 (game layer)
+        combo_layer4 {
+            timeout-ms = <30>;
+            key-positions = <2 9>;  // toggle gamepad layer with upper middle key and outer thumb key
+            bindings = <&to 4>;
+        }
     };
     
     keymap {
@@ -50,12 +57,12 @@
                 &mmv MOVE_LEFT   &mmv MOVE_UP   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &kp ENTER   &kp ESC            
             >;
         };
-        
+            
         // Layer 1: Navigation
         nav_layer {
             bindings = <
                 &kp DEL   &kp LC(X)   &kp LC(C)   &kp LC(V)        
-                &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp LSHFT   &kp LCTRL            
+                &kp LEFT    &kp UP    &kp DOWN      &kp RIGHT   &kp LSHFT   &mkp LCLK            
             >;
         };
 
@@ -72,6 +79,14 @@
             bindings = <
                 &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3        
                 &none           &none           &none           &none           &bt BT_CLR   &bootloader            
+            >;
+        };
+
+        // Layer 4: Gamepad
+        num_layer {
+            bindings = <
+                &kp LEFT    &kp UP    &none    &kp B            
+                &none    &kp DOWN    &kp RIGHT    &kp A    &kp X     &kp Y            
             >;
         };
     };
